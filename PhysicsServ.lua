@@ -8,13 +8,15 @@ end
 
 
 local function FindCollisionGroup(CollisionGroup)
-	for i,v in pairs(gethiddenproperty(Workspace, "CollisionGroups"):split("\\")) do
-		local split = v:split("^")
-		if split[1] == CollisionGroup then
-			return v
+	pcall(function()
+		for i,v in pairs(gethiddenproperty(Workspace, "CollisionGroups"):split("\\")) do
+			local split = v:split("^")
+			if split[1] == CollisionGroup then
+				return v
+			end
 		end
-	end
-	return false
+		return false
+	end)
 end
 
 local function EditCollisionGroup(Name,arg1,arg2,arg3)
