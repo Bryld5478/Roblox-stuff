@@ -106,11 +106,12 @@ local function RenameCollisionGroup(CollisionGroup,newName)
 	end)
 end
 
-modul['FindCollisionGroup'] = FindCollisionGroup
-modul['RenameCollisionGroup'] = RenameCollisionGroup
-modul['RemoveCollisionGroup'] = RemoveCollisionGroup
-modul['CollisionGroupSetCollidable'] = CollisionGroupSetCollidable
-modul['CreateCollisionGroup'] = CreateCollisionGroup
-modul['EditCollisionGroup']
+function modul:FindCollisionGroup(CollisionGroup) return FindCollisionGroup(CollisionGroup); end
+function modul:EditCollisionGroup(Name,arg1,arg2,arg3) return EditCollisionGroup(Name,arg1,arg2,arg3); end
+function modul:CreateCollisionGroup(Name) return CreateCollisionGroup(Name); end
+function modul:CollisionGroupSetCollidable(Name1,Name2,Boolean) return CollisionGroupSetCollidable(Name1,Name2,Boolean); end
+function modul:RemoveCollisionGroup(CollisionGroup) return RemoveCollisionGroup(CollisionGroup); end
+function modul:RenameCollisionGroup(CollisionGroup,newName) return RenameCollisionGroup(CollisionGroup,newName); end
+
 
 return modul
